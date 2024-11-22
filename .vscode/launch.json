@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CUDA Debug",
+            "type": "cppvsdbg",  // Use the correct debugger for VSCode on Windows
+            "request": "launch",
+            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",  // Path to the compiled executable
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "externalTerminal"
+        }
+    ]
+}

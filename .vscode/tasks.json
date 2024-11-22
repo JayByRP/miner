@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "process",
+            "label": "nvcc build active file",
+            "command": "nvcc",  // Make sure nvcc is in your PATH or use full path here
+            "args": [
+                "-g",                          // Debugging information
+                "-I", "C:/Users/jclok/Desktop/Miner/vcpkg/installed/x64-windows/include",  // Include path for OpenSSL
+                "-L", "C:/Users/jclok/Desktop/Miner/vcpkg/installed/x64-windows/lib",     // Library path for OpenSSL
+                "C:/Users/jclok/Desktop/Miner/vcpkg/installed/x64-windows/lib/libcrypto.lib", // Explicitly specify the libcrypto.lib path
+                "${file}",                      // The currently active CUDA file
+                "-o",                           // Output file flag
+                "${workspaceFolder}/build/${fileBasenameNoExtension}.exe"  // Path to the compiled executable
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"     // Set the working directory to the workspace folder
+            },
+            "problemMatcher": [
+                "$msCompile"  // Use MS compiler problem matcher for error detection
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true   // Mark this task as the default build task
+            }
+        }
+    ]
+}
